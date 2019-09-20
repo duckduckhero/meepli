@@ -68,7 +68,7 @@ def playlist(listid):
 @app.route('/profile/<username>')
 def profile(username):
     user = User.query.filter_by(username=username).first()
-    lists = List.query.filter_by(user_id=session['current_id']).all()
+    lists = List.query.filter_by(user_id=user.id).all()
     return render_template('profile.html', user=user, lists=lists)
 
 @app.route('/newlist', methods=['GET', 'POST'])
