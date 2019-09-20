@@ -140,4 +140,4 @@ class Track(db.Model):
     def __repr__(self):
         return f"<Track('{self.id}', '{self.title}')>"
 if __name__ == '__main__':
-    app.run()
+    app.run(ssl_context='adhoc')
