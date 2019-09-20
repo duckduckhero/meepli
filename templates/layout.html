@@ -85,7 +85,9 @@
             <label for="listSelect">추가할 플레이리스트</label>
         <select id="listSelect" class="form-control" name="listSelect">
           <option selected>선택</option>
-          <option>{{mylists}}</option>
+          {% for i in mylists %}
+          <option>{{i.title}}</option>
+          {% endfor %}
         </select>
           </div>
 

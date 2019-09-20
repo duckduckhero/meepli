@@ -15,9 +15,10 @@ db = SQLAlchemy(app)
 @app.context_processor
 def inject_lists():
     if 'logged_in' in session:
-        return dict(mylists='hello')
+        data = List.query.filter_by(user_id=session['current_id']).all()
+        return dict(mylists=data)
     else :
-        return dict(mylists='bye')
+        return dict(mylists='None')
 
 @app.route('/')
 def index():
